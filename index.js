@@ -7,13 +7,16 @@ const mongoose = require('mongoose');
 
 app.use(bodyParser.json());
 
-mongoose.Promise = global.Promise
+mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017');
-process.on('SIGINT', () => {
+mongoose.connect('mongodb://localhost:27017/app');
+mongoose.connection.on('connected', () => {
+    console.log('connected');
+})
+process.on('SIGINT',  () => {
     mongoose.connection.close( () => {
-        console.log("Mongo default connection terminated")
-        process.exit(0);
+        console.log('Mongoose default connection disconnected through app termination')
+        process.exit(0)
     })
 })
 
