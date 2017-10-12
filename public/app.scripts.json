@@ -6,7 +6,9 @@
             "angular-bootstrap",
             "angular-sanitize",
             "angular-ui-router",
-            "bootstrap"
+            "bootstrap",
+            "moment",
+            "angular-bootstrap-calendar"
         ],
         "vendor.ui": []
     },
@@ -16,6 +18,8 @@
         "angular-bootstrap": "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
         "angular-sanitize": "bower_components/angular-sanitize/angular-sanitize.min.js",
         "angular-ui-router": "bower_components/angular-ui-router/release/angular-ui-router.min.js",
-        "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min.js"
+        "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min.js",
+        "moment": "bower_components/moment/min/moment.min.js",
+        "angular-bootstrap-calendar": "bower_components/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"
     }
 }

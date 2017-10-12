@@ -5,12 +5,15 @@
             //3rd party
             'ui.router',
             'ui.bootstrap',
+            'mwl.calendar',
 
+            //layout
+            'starter.layout',
             //views/controllers
-            'starter.layout'
+            'starter.home'
         ])
         .config(RouteConfig)
-        .run(function($rootScope, $document, $window, settings) {
+        .run(function($rootScope, $document, $window) {
 
 
             $rootScope.$on("$stateChangeError", console.log.bind(console));

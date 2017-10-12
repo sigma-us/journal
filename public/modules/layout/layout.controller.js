@@ -3,14 +3,13 @@
     angular.module('starter.layout')
         .controller('layoutController', LayoutController)
 
-        LayoutController.$inject = ['$state', '$window'];
+    LayoutController.$inject = [];
 
-    function LayoutController($state, $window) {
+    function LayoutController() {
         'use strict';
         var vm = this;
-        
         vm.$onInit = () => {
-            console.log('hey I loaded my first controller!')
+            console.log('hey I loaded my layout controller!')
         }
 
     }
