@@ -1,0 +1,21 @@
+{
+    "chunks": {
+        "vendor": [
+            "jquery",
+            "angular",
+            "angular-bootstrap",
+            "angular-sanitize",
+            "angular-ui-router",
+            "bootstrap"
+        ],
+        "vendor.ui": []
+    },
+    "paths": {
+        "jquery": "bower_components/jquery/dist/jquery.min.js",
+        "angular": "bower_components/angular/angular.min.js",
+        "angular-bootstrap": "bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+        "angular-sanitize": "bower_components/angular-sanitize/angular-sanitize.min.js",
+        "angular-ui-router": "bower_components/angular-ui-router/release/angular-ui-router.min.js",
+        "bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min.js"
+    }
+}
