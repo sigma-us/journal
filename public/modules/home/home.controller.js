@@ -42,7 +42,7 @@
         };
     
         vm.eventClicked = function(event) {
-          alert.show('Clicked', event);
+          alert(event);
         };
     
         vm.eventEdited = function(event) {
