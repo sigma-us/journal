@@ -17,7 +17,10 @@ app.use(bodyParser.json());
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/app');
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost:27017', {
+    useMongoClient: true
+});
+
 mongoose.connection.on('connected', () => {
     console.log('connected');
 })

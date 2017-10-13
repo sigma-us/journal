@@ -83,24 +83,6 @@ $(function () {
 'use strict';
 
 (function () {
-    'use strict';
-
-    angular.module('starter.layout').controller('layoutController', LayoutController);
-
-    LayoutController.$inject = [];
-
-    function LayoutController() {
-        'use strict';
-
-        var vm = this;
-        vm.$onInit = function () {
-            console.log('hey I loaded my layout controller!');
-        };
-    }
-})();
-'use strict';
-
-(function () {
   'use strict';
 
   angular.module('starter.home').controller('homeController', HomeController);
@@ -181,4 +163,22 @@ $(function () {
       }
     };
   }
+})();
+'use strict';
+
+(function () {
+    'use strict';
+
+    angular.module('starter.layout').controller('layoutController', LayoutController);
+
+    LayoutController.$inject = [];
+
+    function LayoutController() {
+        'use strict';
+
+        var vm = this;
+        vm.$onInit = function () {
+            console.log('hey I loaded my layout controller!');
+        };
+    }
 })();
