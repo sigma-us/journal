@@ -8,10 +8,12 @@
             'ngAnimate',
             'mwl.calendar',
 
+            'starter.services',
             //layout
             'starter.layout',
             //views/controllers
-            'starter.home'
+            'starter.home',
+            'starter.list'
         ])
         .config(RouteConfig)
         .run(function($rootScope, $document, $window) {

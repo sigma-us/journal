@@ -15,7 +15,7 @@
                 views: {
                     root: {
                         templateUrl: '/public/modules/layout/layout.html',
-                        controller: 'layoutController as layoutCtrl'
+                        controller: 'layoutController as rootCtrl'
                     }
                 }
             })

@@ -1,3 +1,40 @@
-.header {
-    background-color: black;
+
+.col-sm-2.sidebar {
+    background-color: #333;
+    color: white;
+    height: -webkit-fill-available;
+    /* position: fixed;
+    display: block; */
 }
+textarea {
+    resize: none
+}
+
+/* begin navbar style */
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav ul li {
+    float: right;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+nav ul li a:hover {
+    background-color: #111;
+}
+
+/* end navbar style */
