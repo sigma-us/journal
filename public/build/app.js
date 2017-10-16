@@ -128,23 +128,26 @@ $(function () {
 
   angular.module('starter.home').controller('homeController', HomeController);
 
-  HomeController.$inject = ['calendarConfig', 'journalService', 'moment'];
+  HomeController.$inject = ['$state', 'calendarConfig', 'journalService', 'moment'];
 
-  function HomeController(calendarConfig, journalService, moment) {
+  function HomeController($state, calendarConfig, journalService, moment) {
     'use strict';
 
     var vm = this;
     vm.$onInit = function () {
       vm.submitButton = 'Submit';
+      vm.date = new Date();
     };
 
     vm.submitEntry = function () {
       vm.formData.feelings = [];
       vm.formData.feelings[0] = vm.feelings;
+      vm.formData.date = vm.date;
       journalService.insert(vm.formData).then(_onInsertSuccess).catch(_onError);
     };
     function _onInsertSuccess(res) {
       console.log(res);
+      $state.go('app.list');
     }
     function _onError(err) {
       console.log(err);
@@ -235,17 +238,17 @@ $(function () {
         'use strict';
 
         var vm = this;
-        vm.$onInit = function () {
-            journalService.getAll().then(_onGetSuccess).catch(_onError);
-            console.log('hey I loaded my layout controller!');
+        vm.$onInit = function () {};
+        vm.openNav = function () {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
         };
-        function _onGetSuccess(res) {
-            vm.entries = res.items;
-            console.log(vm.entries);
-        }
-        function _onError(err) {
-            console.log(err);
-        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        vm.closeNav = function () {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        };
     }
 })();
 'use strict';
@@ -265,6 +268,16 @@ $(function () {
             vm.entries = entries;
             console.log(vm.entries);
         };
+        vm.delete = function (entry) {
+            journalService.remove(entry._id).then(_onDeleteSuccess).catch(_onError);
+        };
+
+        function _onDeleteSuccess(res) {
+            console.log(res);
+        }
+        function _onError(err) {
+            console.log(err);
+        }
     }
 })();
 'use strict';

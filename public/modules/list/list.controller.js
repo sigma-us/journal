@@ -12,7 +12,20 @@
             vm.entries = entries;
             console.log(vm.entries);
         }
+        vm.delete = entry => {
+            journalService.remove(entry._id)
+            .then(_onDeleteSuccess)
+            .catch(_onError);
+        }   
+
+        function _onDeleteSuccess(res) {
+            console.log(res);
+        }
+        function _onError(err) {
+            console.log(err);
+        }
         
+
 
 
     }

@@ -3,24 +3,27 @@
     angular.module('starter.home')
         .controller('homeController', HomeController)
 
-    HomeController.$inject = ['calendarConfig', 'journalService', 'moment'];
+    HomeController.$inject = ['$state', 'calendarConfig', 'journalService', 'moment'];
 
-    function HomeController(calendarConfig, journalService, moment) {
+    function HomeController($state, calendarConfig, journalService, moment) {
         'use strict';
         var vm = this;
         vm.$onInit = () => {
           vm.submitButton = 'Submit';
+          vm.date = new Date();
         }
         
         vm.submitEntry = () => {
           vm.formData.feelings = [];
-          vm.formData.feelings[0] = vm.feelings
+          vm.formData.feelings[0] = vm.feelings;
+          vm.formData.date = vm.date;
           journalService.insert(vm.formData)
           .then(_onInsertSuccess)
           .catch(_onError);
         }
         function _onInsertSuccess(res) {
           console.log(res)
+          $state.go('app.list');
         }
         function _onError(err){
           console.log(err);
@@ -30,7 +33,7 @@
 
 
         //calendar code
-        
+
         vm.calendarView = 'month';
         vm.viewDate = new Date();
         var actions = [{

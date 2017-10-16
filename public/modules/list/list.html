@@ -1,16 +1,19 @@
-<div class='table-responsive'>
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Notes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat='entry in listCtrl.entries'>
-                <td>{{ entry.date }}</td>
-                <td>{{ entry.notes }}</td>                
-            </tr>
-        </tbody>
-    </table>
+
+<div class='list-container text-center col-sm-4 col-sm-offset-4'>
+    <h1>Journal Entires</h1>
+    <div ng-repeat="entry in listCtrl.entries">
+        <div ng-click='toggle = !toggle' class='entry'>
+            <h3>{{ entry.date | date:'MMMM, dd yyyy' }}</h3>
+            <div ng-hide='!toggle'>
+
+                <h5 ng-hide='!toggle'>{{ entry.notes }}</h5>
+                <a class='btn btn-info btn-xs' ui-sref='app.home({id:entry._id})' >
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+                <a href="#" ng-click='listCtrl.delete(entry)' class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

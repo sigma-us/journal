@@ -9,17 +9,17 @@
         'use strict';
         var vm = this;
         vm.$onInit = () => {
-            journalService.getAll()
-            .then(_onGetSuccess)
-            .catch(_onError);
-            console.log('hey I loaded my layout controller!')
+
         }
-        function _onGetSuccess(res) {
-            vm.entries = res.items;
-            console.log(vm.entries);
+        vm.openNav = () => {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
         }
-        function _onError(err){
-            console.log(err);
+        
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        vm.closeNav = () => {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
         }
     }
 })();
