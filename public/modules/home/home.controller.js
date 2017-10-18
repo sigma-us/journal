@@ -8,28 +8,69 @@
     function HomeController($state, calendarConfig, journalService, moment) {
         'use strict';
         var vm = this;
+        var weekdayKey = {
+          0: 'Sun',
+          1: 'Mon',
+          2: 'Tues',
+          3: 'Wed',
+          4: 'Thur',
+          5: 'Fri',
+          6: 'Sat'
+        }
+
         vm.$onInit = () => {
-          vm.submitButton = 'Submit';
+          vm.formData = {};
+          vm.formData.privacy = 'public';
           vm.date = new Date();
+          var dayKey = vm.date.getDay();
+          vm.day = weekdayKey[dayKey];
+          if ($state.params.id) {
+            editMode();
+            journalService.getById($state.params.id)
+            .then(res => {
+              vm.formData = res.item;
+            })
+            .catch(err => {
+              console.log(err);
+            });
+          } else {
+            addMode();
+          }
+        }
+
+        vm.togglePrivacy = () => {
+          if (vm.formData.privacy === 'public'){
+            vm.formData.privacy = 'private';
+          } else {
+            vm.formData.privacy = 'public';
+          }
         }
         
-        vm.submitEntry = () => {
-          vm.formData.feelings = [];
-          vm.formData.feelings[0] = vm.feelings;
+        vm.submit = () => {
           vm.formData.date = vm.date;
-          journalService.insert(vm.formData)
-          .then(_onInsertSuccess)
-          .catch(_onError);
+          if (!$state.params.id){
+            journalService.insert(vm.formData)
+            .then(_onInsertSuccess)
+            .catch(_onError);
+          } else {
+            journalService.update(vm.formData)
+            .then(_onInsertSuccess)
+            .catch(_onError);
+          }
         }
         function _onInsertSuccess(res) {
-          console.log(res)
           $state.go('app.list');
         }
         function _onError(err){
           console.log(err);
         }
 
-
+        function editMode() {
+          vm.submitButton = 'Update Now';
+        }
+        function addMode() {
+          vm.submitButton = 'Save Now'
+        }
 
 
         //calendar code

@@ -8,7 +8,6 @@
     RouteConfig.$inject = ['$stateProvider'];
 
     function RouteConfig($stateProvider) {
-        console.log('hey this is the module')
         $stateProvider
             .state('app', {
                 abstract: true,

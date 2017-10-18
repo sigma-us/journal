@@ -1,10 +1,29 @@
 <div class='content-container'>
   <div class='form'>
     <div class='content-header'>
-      <textarea class='content-title' rows='1' placeholder="What are you writing about..."></textarea><a class='content-save' ng-click='homeCtrl.save()'>Save Now</a>
+      <textarea class='content-title' rows='1' ng-model='homeCtrl.formData.title' placeholder="What are you writing about..."></textarea>
+      <a class='content-save' ng-click='homeCtrl.submit()'>{{ homeCtrl.submitButton }}</a>
+    </div>
+    <div class='toolbar'>
+      <i class='fa fa-calendar-o'></i>
+      <span>{{ homeCtrl.day }}. </span>
+      <span> {{ homeCtrl.date | date:'MM/dd/yyyy' }}</span>
+      <i class='fa fa-unlock' ng-show="toggle" ng-click='homeCtrl.togglePrivacy(private); toggle = !toggle'> Public</i>
+      <i class='fa fa-lock' ng-show="!toggle" ng-click='homeCtrl.togglePrivacy(public); toggle = !toggle'> Private</i>
+
     </div>
     <div class='content-body'>
-      <textarea class='body' rows="20"></textarea>
+      <div class='select'>
+        <select class='category' ng-model='category' ng-change='homeCtrl.formData.category = category'>
+          <option value='' selected>Category...</option>
+          <option value='General'>General</option>
+          <option value='Microdosing'>Microdosing</option>
+          <option value='To-do'>To-do</option>
+          <option value='Gratitude'>Gratitude</option>
+        </select>
+
+      </div>
+      <textarea class='body' rows="20" ng-model='homeCtrl.formData.notes'></textarea>
     </div>
   </div>
 </div>

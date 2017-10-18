@@ -1,9 +1,7 @@
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" ng-click="rootCtrl.closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    <a ui-sref="app.home" ng-click="rootCtrl.closeNav()">Home/Add</a>
+    <a ui-sref="app.list" ng-click="rootCtrl.closeNav()">Journal Posts</a>
 </div>
 
 <!-- Use any element to open the sidenav -->
@@ -20,10 +18,7 @@
                 <a ng-click='rootCtrl.openNav()'>
                     <i class='fa fa-navicon'></i>
                 </a>
-                <i class='fa fa-bitcoin'></i>
-                <li>
-                    <a ui-sref='app.home'>LOGO</a>
-                </li>
+                
                 <li>
                     <a ui-sref='app.home'>Home</a>
                 </li>

@@ -1,9 +1,17 @@
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+     cursor: pointer;
+ }
 
 #content {
     margin-top: 70px;
     padding-right: 150px;
     padding-left: 150px;
     z-index: 1;    
+}
+#navbar {
+    z-index: 10;
 }
 
 
@@ -12,7 +20,7 @@ nav {
     position: fixed;
     width: 100%;
     margin-bottom: 40px;
-    z-index: 0;
+    z-index: 10;
 }
 nav ul i {
     float: left;
@@ -117,6 +125,13 @@ textarea {
     resize: none;
     border: none;
 }
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+*:focus {
+    outline: 0;
+}
 textarea.body {
     width: 100%;
     margin-top: 10px;
@@ -124,11 +139,58 @@ textarea.body {
 textarea.content-title {
     width: 90%;
     float: left;
+    font-size: 30px;
+}
+textarea.category {
+    float: right;
+
+}
+.content-body select {
+    margin-top: 20px;
+
+}
+
+
+.content-body .select select {
+    padding: 5px 8px;
+    width: 20%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    /* -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none; */
+}
+
+.content-body .select select:hover {
+    background-color: #eaff8e;
+    opacity: 0.5;
+}
+i.fa-unlock,
+i.fa-lock {
+    float: right;
+}
+i.fa-unlock:hover,
+i.fa-lock:hover {
+    color: #146817
 }
 .content-header a.content-save {
     width: 10%;
     float: right;
     text-align: right;
+}
+
+.toolbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    clear: both;
+}
+.toolbar i {
+    margin-right: 10px;
+    font-size: 20px;
 }
 
 .form {
@@ -139,4 +201,36 @@ textarea.content-title {
     border-radius: 2px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+.list-item {
+    background-color: #eaff8e;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 10px;
+}
+div.title {
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+.entry {
+    text-align: left;
+    padding-bottom: 10px;
+}
+.entry .privacy {
+    margin-bottom: 10px;
+    float: right;
+}
+.entry .category {
+    margin-bottom: 10px;
+    float: left;
+}
+.entry .notes {
+    margin: 10px;
+}
+.entry .buttons {
+    clear: both;
+}
+.entry .date {
+    text-align: center;
+    margin-bottom: 10px;
 }

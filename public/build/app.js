@@ -53,6 +53,14 @@ $(function () {
                     controller: "homeController as homeCtrl"
                 }
             }
+        }).state("app.home.edit", {
+            url: "edit/:id",
+            views: {
+                "content@app": {
+                    templateUrl: "/public/modules/home/home.html",
+                    controller: "homeController as homeCtrl"
+                }
+            }
         });
     }
 })();
@@ -67,7 +75,6 @@ $(function () {
     RouteConfig.$inject = ['$stateProvider'];
 
     function RouteConfig($stateProvider) {
-        console.log('hey this is the module');
         $stateProvider.state('app', {
             abstract: true,
             views: {
@@ -134,23 +141,62 @@ $(function () {
     'use strict';
 
     var vm = this;
-    vm.$onInit = function () {
-      vm.submitButton = 'Submit';
-      vm.date = new Date();
+    var weekdayKey = {
+      0: 'Sun',
+      1: 'Mon',
+      2: 'Tues',
+      3: 'Wed',
+      4: 'Thur',
+      5: 'Fri',
+      6: 'Sat'
     };
 
-    vm.submitEntry = function () {
-      vm.formData.feelings = [];
-      vm.formData.feelings[0] = vm.feelings;
+    vm.$onInit = function () {
+      vm.formData = {};
+      vm.formData.privacy = 'public';
+      vm.date = new Date();
+      var dayKey = vm.date.getDay();
+      vm.day = weekdayKey[dayKey];
+      if ($state.params.id) {
+        editMode();
+        journalService.getById($state.params.id).then(function (res) {
+          vm.formData = res.item;
+        }).catch(function (err) {
+          console.log(err);
+        });
+      } else {
+        addMode();
+      }
+    };
+
+    vm.togglePrivacy = function () {
+      if (vm.formData.privacy === 'public') {
+        vm.formData.privacy = 'private';
+      } else {
+        vm.formData.privacy = 'public';
+      }
+    };
+
+    vm.submit = function () {
       vm.formData.date = vm.date;
-      journalService.insert(vm.formData).then(_onInsertSuccess).catch(_onError);
+      if (!$state.params.id) {
+        journalService.insert(vm.formData).then(_onInsertSuccess).catch(_onError);
+      } else {
+        journalService.update(vm.formData).then(_onInsertSuccess).catch(_onError);
+      }
     };
     function _onInsertSuccess(res) {
-      console.log(res);
       $state.go('app.list');
     }
     function _onError(err) {
       console.log(err);
+    }
+
+    function editMode() {
+      vm.submitButton = 'Update Now';
+    }
+    function addMode() {
+      vm.submitButton = 'Save Now';
     }
 
     //calendar code
@@ -273,7 +319,11 @@ $(function () {
         };
 
         function _onDeleteSuccess(res) {
-            console.log(res);
+            var list = vm.entries;
+            var removeIndex = list.findIndex(function (element, index, list) {
+                return element._id === res.item._id;
+            });
+            list.splice(removeIndex, 1);
         }
         function _onError(err) {
             console.log(err);

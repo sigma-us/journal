@@ -19,7 +19,13 @@
         }   
 
         function _onDeleteSuccess(res) {
-            console.log(res);
+            let list = vm.entries;
+            let removeIndex = list.findIndex(
+                (element, index, list) => {
+                  return element._id === res.item._id;
+                }
+              );
+              list.splice(removeIndex, 1);
         }
         function _onError(err) {
             console.log(err);

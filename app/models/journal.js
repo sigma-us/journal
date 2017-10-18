@@ -6,14 +6,21 @@ const journalSchema = new Schema({
         type: String,
         required: true
     },
+    title: {
+        type: String,
+        required: true
+    },
     notes: {
         type: String,
         required: true
     },
-    feelings: [{
+    privacy: {
         type: String,
         required: true
-    }]
+    },
+    category: {
+        type: String
+    }
 
 })
 
