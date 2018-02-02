@@ -5,9 +5,6 @@
     "exclude": [
         "node_modules",
         "bower_components",
-        "public/html-views",
-        "public-unrestricted/html-views",
-        "public/build",
-        "public-unrestricted/build"
+        "public/build"
     ]
 }

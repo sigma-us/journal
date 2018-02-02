@@ -1,6 +1,10 @@
 //const passport = require('passport');
 const router = require("express").Router();
 const sitesRoutes = require("./sites.routes");
+const journalsRoutes = require("./journals.routes");
+
+
+router.use('/api/journals', journalsRoutes);
 
 // Handle API 404
 router.use("/api/*", function(req, res, next) {

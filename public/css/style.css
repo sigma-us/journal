@@ -1,0 +1,236 @@
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+     cursor: pointer;
+ }
+
+#content {
+    margin-top: 70px;
+    padding-right: 150px;
+    padding-left: 150px;
+    z-index: 1;    
+}
+#navbar {
+    z-index: 10;
+}
+
+
+/* begin navbar style */
+nav {
+    position: fixed;
+    width: 100%;
+    margin-bottom: 40px;
+    z-index: 10;
+}
+nav ul i {
+    float: left;
+    color: white;
+    font-size: 20px;
+
+}
+nav ul a {
+    float: left;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2e9068;
+}
+
+nav ul li {
+    float: right;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+} 
+
+/* Change the link color to #111 (black) on hover */
+nav ul li a:hover {
+    background-color: #111;
+}
+
+/* end navbar style */
+
+/* side nav */
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    /* padding: 20px; */
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* end side nav */
+
+
+html {    
+    background:url(https://penzu.com/stylesheets/themes/page/basic/background.jpg) no-repeat;
+    background-size: cover;
+    height:100%;
+}
+textarea {
+    resize: none;
+    border: none;
+}
+textarea:focus, input:focus{
+    outline: 0;
+}
+
+*:focus {
+    outline: 0;
+}
+textarea.body {
+    width: 100%;
+    margin-top: 10px;
+}
+textarea.content-title {
+    width: 90%;
+    float: left;
+    font-size: 30px;
+}
+textarea.category {
+    float: right;
+
+}
+.content-body select {
+    margin-top: 20px;
+
+}
+
+
+.content-body .select select {
+    padding: 5px 8px;
+    width: 20%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    /* -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none; */
+}
+
+.content-body .select select:hover {
+    background-color: #eaff8e;
+    opacity: 0.5;
+}
+i.fa-unlock,
+i.fa-lock {
+    float: right;
+}
+i.fa-unlock:hover,
+i.fa-lock:hover {
+    color: #146817
+}
+.content-header a.content-save {
+    width: 10%;
+    float: right;
+    text-align: right;
+}
+
+.toolbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    clear: both;
+}
+.toolbar i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.form {
+    padding: 20px;
+}
+.content-container {
+    background-color: white;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.list-item {
+    background-color: #eaff8e;
+    padding: 10px;
+    border-radius: 3px;
+    margin: 10px;
+}
+div.title {
+    font-size: 25px;
+    padding-bottom: 5px;
+}
+.entry {
+    text-align: left;
+    padding-bottom: 10px;
+}
+.entry .privacy {
+    margin-bottom: 10px;
+    float: right;
+}
+.entry .category {
+    margin-bottom: 10px;
+    float: left;
+}
+.entry .notes {
+    margin: 10px;
+}
+.entry .buttons {
+    clear: both;
+}
+.entry .date {
+    text-align: center;
+    margin-bottom: 10px;
+}
